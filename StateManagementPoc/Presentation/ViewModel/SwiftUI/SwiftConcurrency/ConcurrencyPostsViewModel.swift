@@ -8,7 +8,7 @@
 import SwiftUI
 
 @MainActor
-class ConcurrencyPostsViewModel: ObservableObject {
+class ConcurrencyPostsViewModel: ObservableObject, PostsViewModelProtocol {
     @Published var posts: [PostEntity] = []
     @Published var isLoading: Bool = false
     @Published var errorMessage: String?
@@ -19,16 +19,18 @@ class ConcurrencyPostsViewModel: ObservableObject {
         self.fetchPostsUseCase = fetchPostsUseCase
     }
     
-    func loadPosts() async {
-        isLoading = true
-        errorMessage = nil
-        
-        do {
-            posts = try await fetchPostsUseCase.execute()
-        } catch {
-            errorMessage = error.localizedDescription
+    func loadPosts() {
+        Task {
+            isLoading = true
+            errorMessage = nil
+            
+            do {
+                posts = try await fetchPostsUseCase.execute()
+            } catch {
+                errorMessage = error.localizedDescription
+            }
+            
+            isLoading = false
         }
-        
-        isLoading = false
     }
 }

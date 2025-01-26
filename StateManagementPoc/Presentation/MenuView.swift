@@ -13,25 +13,33 @@ struct MenuView: App {
     private let apiService = PostService()
     private let repository: PostRepository
     private let fetchUseCase: FetchPostsUseCase
-
+    
     init() {
         repository = HttpPostRepository(apiService: apiService)
         fetchUseCase = FetchPostsUseCase(repository: repository)
     }
-
+    
     
     var body: some Scene {
         WindowGroup {
             NavigationView {
                 List {
                     let concurrencyViewModel = ConcurrencyPostsViewModel(fetchPostsUseCase: fetchUseCase)
-                    NavigationLink("1) SwiftUI + Concurrency") {
-                        ConcurrencyPostsView(viewModel: concurrencyViewModel)
+                    let concurrencyTitle = "SwiftUI + Concurrency"
+                    NavigationLink(concurrencyTitle) {
+                        PostsFeatureView(
+                            title: concurrencyTitle,
+                            viewModel: concurrencyViewModel
+                        )
                     }
                     
                     let combinePostsViewModel = CombinePostsViewModel(fetchPostsUseCase: fetchUseCase)
-                    NavigationLink("2) SwiftUI + Combine") {
-                        CombinePostsView(viewModel: combinePostsViewModel)
+                    let combineTitle = "SwiftUI + Combine"
+                    NavigationLink(combineTitle) {
+                        PostsFeatureView(
+                            title: combineTitle,
+                            viewModel: combinePostsViewModel
+                        )
                     }
                 }
                 .navigationTitle("Choose State Management")
