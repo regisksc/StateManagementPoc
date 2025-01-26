@@ -41,6 +41,15 @@ struct MenuView: App {
                             viewModel: combinePostsViewModel
                         )
                     }
+                    
+                    let rxVM = RxSwiftPostsViewModel(fetchPostsUseCase: fetchUseCase)
+                    let rxTitle = "SwiftUI + RxSwift"
+                    NavigationLink(rxTitle) {
+                        PostsFeatureView(
+                            title: rxTitle,
+                            viewModel: rxVM
+                        )
+                    }
                 }
                 .navigationTitle("Choose State Management")
             }
