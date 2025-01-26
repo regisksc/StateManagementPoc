@@ -11,7 +11,7 @@ import SwiftUI
 struct StateManagementPocApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            Text("")
         }
     }
 }
