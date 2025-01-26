@@ -28,6 +28,11 @@ struct MenuView: App {
                     NavigationLink("1) SwiftUI + Concurrency") {
                         ConcurrencyPostsView(viewModel: concurrencyViewModel)
                     }
+                    
+                    let combinePostsViewModel = CombinePostsViewModel(fetchPostsUseCase: fetchUseCase)
+                    NavigationLink("2) SwiftUI + Combine") {
+                        CombinePostsView(viewModel: combinePostsViewModel)
+                    }
                 }
                 .navigationTitle("Choose State Management")
             }
