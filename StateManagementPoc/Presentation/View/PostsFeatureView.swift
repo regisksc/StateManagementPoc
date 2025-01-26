@@ -5,8 +5,6 @@
 //  Created by Regis Kian on 1/26/25.
 //
 
-
-// Presentation/Shared/PostsFeatureView.swift
 import SwiftUI
 
 struct PostsFeatureView<VM: PostsViewModelProtocol>: View {
@@ -42,10 +40,21 @@ struct PostsFeatureView<VM: PostsViewModelProtocol>: View {
                             Text(post.body).font(.subheadline)
                         }
                     }
+                    .listStyle(.plain)
                 }
             }
             .navigationTitle(title)
+            .toolbar {
+                ToolbarItem(placement: .navigationBarTrailing) {
+                    Button(action: {
+                        viewModel.loadPosts()
+                    }) {
+                        Image(systemName: "arrow.clockwise")
+                    }
+                }
+            }
         }
+        .navigationBarTitleDisplayMode(.inline)
         .onAppear {
             viewModel.loadPosts()
         }
