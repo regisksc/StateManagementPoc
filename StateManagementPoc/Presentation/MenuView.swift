@@ -52,7 +52,16 @@ struct MenuView: App {
                     }
                     
                     NavigationLink("UIKit + RxSwift") {
-                        UIKitRxContainer(fetchPostsUsecase: fetchUseCase)
+                        UIKitGenericContainer {
+                            let vm = UIKitRxPostsViewModel(fetchPostsUseCase: fetchUseCase)
+                            return PostsTableViewController(viewModel: vm)
+                        }
+                    }
+                    
+                    NavigationLink("UIKit + Delegates") {
+                        UIKitGenericContainer {
+                            DelegatePostsTableViewController(fetchPostsUseCase: fetchUseCase)
+                        }
                     }
                 }
                 .navigationTitle("Choose State Management approach")
