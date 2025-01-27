@@ -50,8 +50,12 @@ struct MenuView: App {
                             viewModel: rxVM
                         )
                     }
+                    
+                    NavigationLink("UIKit + RxSwift") {
+                        UIKitRxContainer(fetchPostsUsecase: fetchUseCase)
+                    }
                 }
-                .navigationTitle("Choose State Management")
+                .navigationTitle("Choose State Management approach")
             }
         }
     }

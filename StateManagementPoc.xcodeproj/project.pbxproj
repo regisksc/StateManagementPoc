@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		B7AF81572D46E7B30037D090 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = B7AF81562D46E7B30037D090 /* RxSwift */; };
+		B7AF81622D46ED440037D090 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = B7AF81612D46ED440037D090 /* RxCocoa */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7AF81622D46ED440037D090 /* RxCocoa in Frameworks */,
 				B7AF81572D46E7B30037D090 /* RxSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -38,6 +40,7 @@
 			isa = PBXGroup;
 			children = (
 				B7AF81052D46C60A0037D090 /* StateManagementPoc */,
+				B7AF81602D46ED440037D090 /* Frameworks */,
 				B7AF81042D46C60A0037D090 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,6 +51,13 @@
 				B7AF81032D46C60A0037D090 /* StateManagementPoc.app */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		B7AF81602D46ED440037D090 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,6 +81,7 @@
 			name = StateManagementPoc;
 			packageProductDependencies = (
 				B7AF81562D46E7B30037D090 /* RxSwift */,
+				B7AF81612D46ED440037D090 /* RxCocoa */,
 			);
 			productName = StateManagementPoc;
 			productReference = B7AF81032D46C60A0037D090 /* StateManagementPoc.app */;
@@ -350,6 +361,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7AF81552D46E7640037D090 /* XCRemoteSwiftPackageReference "RxSwift" */;
 			productName = RxSwift;
+		};
+		B7AF81612D46ED440037D090 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7AF81552D46E7640037D090 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
